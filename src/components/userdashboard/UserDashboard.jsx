@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from '../partials/Navbar';
-import Sidebar from './sidebar';
 import Footer from '../partials/Footer';
+import Sidebar from './Sidebar';
 
 const UserDashboard = () => {
   const [menuOpen, setMenuOpen] = useState(false);
