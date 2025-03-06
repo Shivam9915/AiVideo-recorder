@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from '../store.json';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import CustomGoogleSignInButton from "./Partials/CustomGoogleSigninButton";
 import { signInWithGoogle } from "./firbase/firbaseConfig";
+import CustomGoogleSignInButton from "./partials/CustomGoogleSignInButton.jsx";
 
 const CreateAccount = () => {
   const [email, setEmail] = useState("");
