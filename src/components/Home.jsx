@@ -2,6 +2,14 @@ import React from "react";
 import HorizontalNav from "./partials/HorizontalNav";
 import Footer from "./partials/Footer";
 import { Link } from "react-router-dom";
+import camera from "../assets/cameraReady.png";
+import laptop from "../assets/laptop.png";
+import text from "../assets/teext.png";
+import shubhamsir from "../assets/shubhamsir.mp4";
+import background from "../assets/background.png";
+
+
+
 
 const Home = () => {
   return (
@@ -43,7 +51,7 @@ const Home = () => {
           <img
             alt="Laptop showing news video creation interface"
             className="w-full h-auto object-fit"
-            src="/src/assets/laptop.png"
+            src={laptop}
           />
         </div>
       </div>
@@ -56,7 +64,7 @@ const Home = () => {
             <img
               alt="Three avatars ready to create videos"
               className="mx-auto mb-4 h-[40vh] object-fit"
-              src="/src/assets/cameraReady.png"
+              src={camera}
             />
             <h2 className="text-xl font-semibold mb-2">Camera-Ready 24/7</h2>
             <p className="text-gray-600">
@@ -70,7 +78,7 @@ const Home = () => {
             <img
               alt="Avatar demonstrating lifelike text-to-speech"
               className="mx-auto mb-4 h-[40vh] object-cover"
-              src="/src/assets/teext.png"
+              src={text}
             />
             <h2 className="text-xl font-semibold mb-2">Lifelike Text-to-Speech</h2>
             <p className="text-gray-600">
@@ -83,7 +91,7 @@ const Home = () => {
             <img
               alt="AI video editing tools interface"
               className="mx-auto mb-4 h-[40vh] object-cover"
-              src="/src/assets/background.png"
+              src={background}
             />
             <h2 className="text-xl font-semibold mb-2">Background Change</h2>
             <p className="text-gray-600">
@@ -144,7 +152,7 @@ const Home = () => {
         loop
         alt="Laptop showing news video creation interface"
         className="w-full max-w-[70%] h-auto object-cover rounded-3xl border" // Updated styles for responsiveness
-        src="/src/assets/shubhamsir.mp4"
+        src={shubhamsir}
       />
     </div>
   </div>
