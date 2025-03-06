@@ -1,0 +1,25 @@
+.dots-container {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  font-size: 24px; /* Adjust size as needed */
+  margin: 0 6px; /* Space between dots */
+  opacity: 0.3; /* Default opacity for inactive dots */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.dot.active {
+  opacity: 1; /* Full opacity for active dots */
+  animation: pulse 0.6s infinite alternate; /* Optional pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.5);
+  }
+}
