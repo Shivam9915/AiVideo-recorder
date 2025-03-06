@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios"; // Make sure to import axios
 import { API, API_URL } from "../../store.json";
+import userpanel from "../../assets/userpanel.jpg";
+import adminpanel from "../../assets/admin-panel.png";
 
 const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
   const navigate = useNavigate();
@@ -232,7 +234,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                   >
                     <img
                       className="h-5 w-5"
-                      src="src/assets/admin-panel.png"
+                      src={adminpanel}
                       alt="Admin Panel"
                     />{" "}
                     Admin Panel
@@ -245,7 +247,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                   >
                     <img
                       className="h-5 w-5 rounded-full"
-                      src="src/assets/userpanel.jpg"
+                      src={userpanel}
                       alt
                     ></img>
                     User Panel
