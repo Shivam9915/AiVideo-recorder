@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios
 import Navbar from '../partials/Navbar';
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 import { API_URL } from '../../store.json';
 
 const Subscription = () => {
