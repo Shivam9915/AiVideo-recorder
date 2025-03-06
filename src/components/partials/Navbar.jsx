@@ -248,6 +248,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                       src="src/assets/userpanel.jpg"
                       alt
                     ></img>
+                    User Panel
                   </Link>
                 </li>
                 <li>
