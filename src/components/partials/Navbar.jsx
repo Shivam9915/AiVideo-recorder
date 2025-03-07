@@ -17,18 +17,18 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
   const [isProfileEnlarged, setIsProfileEnlarged] = useState(false); // New state for enlarged profile picture
   const [showChangeOption, setShowChangeOption] = useState(false); // New state for showing change option
   const fileInputRef = useRef(null); // Reference for the file input
-  const userId = localStorage.getItem("userId");
-  const id = localStorage.getItem("id");
+  const user_id = localStorage.getItem("userId");
+  console.log(user_id)
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
       const formData = new FormData();
       formData.append("profile_picture", file);
-      formData.append("user_id", userId); // Add any other necessary data to formData
-      for (let [key, value] of formData.entries()) {
-        console.log(`${key}:`, value);
-      }
+      formData.append("user_id", user_id); // Add any other necessary data to formData
+      // for (let [key, value] of formData.entries()) {
+      //   console.log(`${key}:`, value);
+      // }
       try {
         const response = await axios.post(
           `${API_URL}/update_profile`,
@@ -41,9 +41,9 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
         );
         console.log(response);
         localStorage.setItem("id", response.data.id);
-        console.log(localStorage.getItem("id"));
+        console.log(localStorage.getItem("userid"));
         // Update the profile picture state with the new URL
-        // setDp(response.data.profile_pictire_path
+        setDp(response.data.file_path)
         // );
         // Adjust based on your API response
       } catch (error) {
@@ -51,6 +51,8 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
       }
     }
   };
+
+
 
   const handleProfilePictureClick = () => {
     setIsProfileEnlarged(true);
@@ -69,32 +71,32 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
 
   console.log(dp);
 
-  useEffect(() => {
-    const initial = localStorage.getItem("userInitial");
-    if (initial) {
-      setUserInitial(initial);
-    }
-    const handleClickOutside = (event) => {
-      if (
-        profileMenuRef.current &&
-        !profileMenuRef.current.contains(event.target)
-      ) {
-        setIsProfileMenuOpen(false);
-        setIsProfileEnlarged(false); // Close the enlarged view
-        setShowChangeOption(false);
-      }
-      if (
-        logoutMenuRef.current &&
-        !logoutMenuRef.current.contains(event.target)
-      ) {
-        setIsLogoutMenuOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const initial = localStorage.getItem("userInitial");
+  //   if (initial) {
+  //     setUserInitial(initial);
+  //   }
+  //   const handleClickOutside = (event) => {
+  //     if (
+  //       profileMenuRef.current &&
+  //       !profileMenuRef.current.contains(event.target)
+  //     ) {
+  //       setIsProfileMenuOpen(false);
+  //       setIsProfileEnlarged(false); // Close the enlarged view
+  //       setShowChangeOption(false);
+  //     }
+  //     if (
+  //       logoutMenuRef.current &&
+  //       !logoutMenuRef.current.contains(event.target)
+  //     ) {
+  //       setIsLogoutMenuOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -105,9 +107,20 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
     setIsLogoutMenuOpen(!isLogoutMenuOpen);
   };
 
-  // const handleFileInputClick = () => {
-  //   fileInputRef.current.click(); // Trigger the file input
-  // };
+
+    // Close enlarged profile picture when clicking outside
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (isProfileEnlarged && !profileMenuRef.current.contains(event.target)) {
+          setIsProfileEnlarged(false);
+          setShowChangeOption(false);
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [isProfileEnlarged]);
 
   return (
     <>
@@ -163,7 +176,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
               <div className="relative flex items-start">
                 {!profilepic ? (
                   <img
-                    src={`${API_URL}/get_profile_picture/${id}`}
+                    src={`${API_URL}/get_profile_picture/${user_id}`}
                     alt="User Profile"
                     className="rounded-full object-cover w-10 h-10 cursor-pointer"
                     onClick={handleProfilePictureClick}
@@ -190,7 +203,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                   >
                     <div className="relative">
                       <img
-                        src={`${API_URL}/get_profile_picture/${id}`}
+                        src={`${API_URL}/get_profile_picture/${user_id}`}
                         alt="Enlarged Profile"
                         className="rounded-full w-32 h-32 object-cover cursor-pointer"
                       />
@@ -282,7 +295,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
             <div className="relative flex items-start">
                 {!profilepic && !userInitial ? (
                   <img
-                    src={`${API_URL}/get_profile_picture/${id}`}
+                    src={`${API_URL}/get_profile_picture/${user_id}`}
                     alt="User Profile"
                     className="rounded-full object-cover w-10 h-10 cursor-pointer"
                     onClick={handleProfilePictureClick}
@@ -309,7 +322,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                   >
                     <div className="relative">
                       <img
-                        src={`${API_URL}/get_profile_picture/${id}`}
+                        src={`${API_URL}/get_profile_picture/${user_id}`}
                         alt="Enlarged Profile"
                         className="rounded-full w-32 h-32 object-cover cursor-pointer"
                       />

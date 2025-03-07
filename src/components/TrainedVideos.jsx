@@ -153,6 +153,13 @@ const TrainedVideos = () => {
 
   const handleEditFilename = async () => {
     const userId = localStorage.getItem("userId");
+    console.log("new video"+newFilename);
+    console.log("current"+currentVideo);
+    
+    if(!newFilename){
+      setNewFilename(currentVideo)
+    }
+    // setOptionsMenuVisible(false);
     if (!newFilename || !currentVideo) return;
 
     try {
@@ -160,12 +167,15 @@ const TrainedVideos = () => {
       formData.append("filename", currentVideo);
       formData.append("new_filename", newFilename);
       formData.append("user_id", userId);
-
+      console.log("come to call api");
+      
       const response = await axios.post(`${API_URL}/rename_video`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      console.log("response", response);
+      
 
       setVideos(
         videos.map((video) =>
@@ -410,7 +420,7 @@ const TrainedVideos = () => {
           )}
 
           {newFilename && (
-            <div className="fixed bottom-24 right-3 bg-zinc-400 shadow-lg rounded-md p-4 w-90">
+            <div className="fixed bottom-24 right-96 bg-zinc-400 shadow-lg rounded-md p-4 w-90">
               <input
                 type="text"
                 value={newFilename}
