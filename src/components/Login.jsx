@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../store.json';
 import { useAuth } from '../context/AuthContext';
+import { BASE_URL } from '../store.json';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const Login = () => {
 
         if (userId) {
             // User ID exists, redirect to the trained videos page
-            navigate("/trainedvideos");
+            navigate(`${BASE_URL}/trainedvideos`);
         }
     }, [navigate]);
 
@@ -65,9 +66,9 @@ const Login = () => {
                 login();
 
                 if (video_status == true) {
-                    navigate("/trainedvideos");
+                    navigate(`${BASE_URL}/trainedvideos`);
                 } else {
-                    navigate("/Ai-Setup1");
+                    navigate(`${BASE_URL}/Ai-Setup1`);
                 }
             }
             else{

@@ -4,6 +4,7 @@ import axios from "axios"; // Import axios
 import Navbar from "./partials/Navbar";
 import Footer from "./partials/Footer";
 import { useVideo } from "../context/VideoContext";
+import {BASE_URL} from "../store.json";
 
 
 const SetupAi4 = () => {
@@ -45,7 +46,7 @@ const SetupAi4 = () => {
   };
 
   const handleFirstVideo = () => {
-    navigate("/create-video",{state:videourl});
+    navigate(BASE_URL+"/create-video",{state:videourl});
     
     
   };

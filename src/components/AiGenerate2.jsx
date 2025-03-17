@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./partials/Navbar";
+import {BASE_URL} from '../store.json'
 
 const AiGenerate2 = () => {
   const location = useLocation();
@@ -76,7 +77,7 @@ const AiGenerate2 = () => {
       if (data) {
         setLoading(false);
         console.log(data);
-        navigate("/trainedvideos");
+        navigate(BASE_URL+"/trainedvideos");
       }
     } catch (error) {
       console.error("Error:", error);

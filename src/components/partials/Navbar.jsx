@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios"; // Make sure to import axios
-import { API, API_URL } from "../../store.json";
+import { API, API_URL,BASE_URL } from "../../store.json";
 import userpanel from "../../assets/userpanel.jpg";
 import adminpanel from "../../assets/admin-panel.png";
 
@@ -100,7 +100,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = "/login";
+    window.location.href = `${BASE_URL}/login`;
   };
 
   const toggleLogoutMenu = () => {
@@ -131,7 +131,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
           <button onClick={toggleMobileNav} className="md:hidden mr-8">
             <i className="fas fa-bars text-2xl"></i>
           </button>
-          <Link to="/">
+          <Link to={BASE_URL+"/"}>
             <h1 className="font-[600] text-[26px] text-blue-500">
               {" "}
               AiVideo Recorder{" "}
@@ -142,7 +142,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
           <div className="hidden md:flex items-center">
             {/* Navigation Links */}
             <NavLink
-              to="/trainedvideos"
+              to={BASE_URL+"/trainedvideos"}
               className={({ isActive }) =>
                 `mx-4 text-md font-semibold ${
                   isActive ? "bg-[#48A6A7] px-2 py-1 rounded" : "text-gray-700"
@@ -152,7 +152,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
               <i className="fas fa-video inline mr-1"></i> Trained Videos
             </NavLink>
             <NavLink
-              to="/templates"
+              to={BASE_URL+"/templates"}
               className={({ isActive }) =>
                 `mx-4 text-md font-semibold ${
                   isActive ? "bg-[#48A6A7] px-2 py-1 rounded" : "text-gray-700"
@@ -162,7 +162,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
               <i className="fas fa-file-alt inline mr-1"></i> Templates
             </NavLink>
             <NavLink
-              to="/compositions"
+              to={BASE_URL+"/compositions"}
               className={({ isActive }) =>
                 `mx-4 text-md font-semibold ${
                   isActive ? "bg-[#48A6A7] px-2 py-1 rounded" : "text-gray-700"
@@ -242,7 +242,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
               <ul>
                 <li>
                   <Link
-                    to="/admin-panel"
+                    to={BASE_URL+"/admin-panel"}
                     className="px-4 py-2 text-blue-900 hover:bg-gray-100 flex gap-x-3"
                   >
                     <img
@@ -255,7 +255,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                 </li>
                 <li>
                   <Link
-                    to="/userpanel"
+                    to={BASE_URL+"/userpanel"}
                     className="flex items-center gap-x-3 px-4 py-2 text-blue-600 hover:bg-gray-100"
                   >
                     <img
@@ -347,7 +347,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
             </div>
             <div className="p-4 bg-white">
               <NavLink
-                to="/trainedvideos"
+                to={BASE_URL+"/trainedvideos"}
                 className={({ isActive }) =>
                   `block px-4 py-2 text-md font-semibold ${
                     isActive
@@ -359,7 +359,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                 <i className="fas fa-video inline mr-1"></i> Trained Videos
               </NavLink>
               <NavLink
-                to="/templates"
+                to={BASE_URL+"/templates"}
                 className={({ isActive }) =>
                   `block px-4 py-2 text-md font-semibold ${
                     isActive
@@ -371,7 +371,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                 <i className="fas fa-file-alt inline mr-1"></i> Templates
               </NavLink>
               <NavLink
-                to="/compositions"
+                to={BASE_URL+"/compositions"}
                 className={({ isActive }) =>
                   `block px-4 py-2 text-md font-semibold ${
                     isActive
@@ -384,7 +384,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                 Compositions
               </NavLink>
               <NavLink
-                to="/admin-panel"
+                to={BASE_URL+"/admin-panel"}
                 className={({ isActive }) =>
                   `flex gap-x-2 px-2 py-2 text-md font-semibold ${
                     isActive
@@ -401,7 +401,7 @@ const Navbar = ({ profilePicture, isMobileNavOpen, toggleMobileNav }) => {
                 Admin Panel
               </NavLink>
               <NavLink
-                to="/userpanel"
+                to={BASE_URL+"/userpanel"}
                 className={({ isActive }) =>
                   `flex gap-x-2 px-2 py-2 text-md font-semibold ${
                     isActive

@@ -34,6 +34,7 @@ import About from './components/partials/About';
 import Contact from './components/partials/Contact';
 import SubscriptionPlans from './components/SubscriptionPlans';
 import VideoList from './components/VideoList';
+import { BASE_URL } from './store.json';
 
 const App = () => {
   return (
@@ -45,38 +46,38 @@ const App = () => {
 
           <div className='h-fit bg-gray-100 overflow-x-hidden overflow-y-hidden'>
             <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/verification" element={<Verification />} />
-              <Route path='/register' element={<CreateAccount />} />
+              <Route path={BASE_URL+"/login"} element={<Login />} />
+              <Route path={BASE_URL+"/verification"} element={<Verification />} />
+              <Route path={BASE_URL+'/register'} element={<CreateAccount />} />
 
               {/* Protected Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/userpanel" element={<PrivateRoute><Subscription/></PrivateRoute>} />
-              <Route path="/favourites" element={<PrivateRoute><Favourites /></PrivateRoute>} />
-              <Route path="/trainedvideos" element={<TrainedVideos />} />
-              <Route path="/videolist" element={<PrivateRoute><VideoList /></PrivateRoute>} />
-              <Route path="/templates" element={<PrivateRoute><Templates /></PrivateRoute>} />
-              <Route path="/create-video" element={<PrivateRoute><CreateVideo /></PrivateRoute>} />
-              <Route path="/writeText" element={<PrivateRoute><WriteText /></PrivateRoute>} />
-              <Route path="/audio-recording" element={<PrivateRoute><AudioRecorder /></PrivateRoute>} />
-              <Route path='/preview-audio' element={<PrivateRoute><AudPreview /></PrivateRoute>} />
-              <Route path='/preview-text' element={<PrivateRoute><PreviewText /></PrivateRoute>} />
-              <Route path='/AiGenerate1' element={<PrivateRoute><AiGenerate /></PrivateRoute>} />
-              <Route path='/AiGenerate2' element={<PrivateRoute><AiGenerate2 /></PrivateRoute>} />
-              <Route path="/Ai-Setup1" element={<AiBot />} />
-              <Route path="/Ai-Setup2" element={<PrivateRoute><SetupAi2 /></PrivateRoute>} />
-              <Route path="/Ai-Setup3" element={<PrivateRoute><SetupAi3 /></PrivateRoute>} />
-              <Route path='/terms-and-conditions' element={<PrivateRoute><TermsAndConditions /></PrivateRoute>} />
-              <Route path="/Ai-Setup4" element={<PrivateRoute><SetupAi4 /></PrivateRoute>} />
-              <Route path='/forgot-password' element={<PrivateRoute><ForgotPassword /></PrivateRoute>} />
-              <Route path='/reset-password' element={<PrivateRoute><ResetPassword /></PrivateRoute>} />
-              <Route path='/compositions' element={<PrivateRoute><Compositions /></PrivateRoute>} />
-              <Route path='/admin-panel' element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
-              <Route path='/subscription' element={<PrivateRoute><Subscription /></PrivateRoute>} />
-              <Route path='/renew-subscription' element={<PrivateRoute><SubscriptionPlans/></PrivateRoute>} />
-              <Route path="/trainedvideos" element={<PrivateRoute><TrainedVideos/></PrivateRoute>} />
-              <Route path="/about" element={<About/>} />
-              <Route path="/contact" element={<Contact/>} />
+              <Route path={BASE_URL+"/"} element={<Home />} />
+              <Route path={BASE_URL+"/userpanel"} element={<PrivateRoute><Subscription/></PrivateRoute>} />
+              <Route path={BASE_URL+"/favourites"} element={<PrivateRoute><Favourites /></PrivateRoute>} />
+              <Route path={BASE_URL+"/trainedvideos"} element={<TrainedVideos />} />
+              <Route path={BASE_URL+"/videolist"} element={<PrivateRoute><VideoList /></PrivateRoute>} />
+              <Route path={BASE_URL+"/templates"} element={<PrivateRoute><Templates /></PrivateRoute>} />
+              <Route path={BASE_URL+"/create-video"} element={<PrivateRoute><CreateVideo /></PrivateRoute>} />
+              <Route path={BASE_URL+"/writeText"} element={<PrivateRoute><WriteText /></PrivateRoute>} />
+              <Route path={BASE_URL+"/audio-recording"} element={<PrivateRoute><AudioRecorder /></PrivateRoute>} />
+              <Route path={BASE_URL+'/preview-audio'} element={<PrivateRoute><AudPreview /></PrivateRoute>} />
+              <Route path={BASE_URL+'/preview-text'} element={<PrivateRoute><PreviewText /></PrivateRoute>} />
+              <Route path={BASE_URL+'/AiGenerate1'} element={<PrivateRoute><AiGenerate /></PrivateRoute>} />
+              <Route path={BASE_URL+'/AiGenerate2'} element={<PrivateRoute><AiGenerate2 /></PrivateRoute>} />
+              <Route path={BASE_URL+"/Ai-Setup1"} element={<AiBot />} />
+              <Route path={BASE_URL+"/Ai-Setup2"} element={<PrivateRoute><SetupAi2 /></PrivateRoute>} />
+              <Route path={BASE_URL+"/Ai-Setup3"} element={<PrivateRoute><SetupAi3 /></PrivateRoute>} />
+              <Route path={BASE_URL+'/terms-and-conditions'} element={<PrivateRoute><TermsAndConditions /></PrivateRoute>} />
+              <Route path={BASE_URL+"/Ai-Setup4"} element={<PrivateRoute><SetupAi4 /></PrivateRoute>} />
+              <Route path={BASE_URL+'/forgot-password'} element={<PrivateRoute><ForgotPassword /></PrivateRoute>} />
+              <Route path={BASE_URL+'/reset-password'} element={<PrivateRoute><ResetPassword /></PrivateRoute>} />
+              <Route path={BASE_URL+'/compositions'} element={<PrivateRoute><Compositions /></PrivateRoute>} />
+              <Route path={BASE_URL+'/admin-panel'} element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
+              <Route path={BASE_URL+'/subscription'} element={<PrivateRoute><Subscription /></PrivateRoute>} />
+              <Route path={BASE_URL+'/renew-subscription'} element={<PrivateRoute><SubscriptionPlans/></PrivateRoute>} />
+              <Route path={BASE_URL+"/trainedvideos"} element={<PrivateRoute><TrainedVideos/></PrivateRoute>} />
+              <Route path={BASE_URL+"/about"} element={<About/>} />
+              <Route path={BASE_URL+"/contact"} element={<Contact/>} />
               
               
 

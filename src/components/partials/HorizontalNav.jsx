@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { BASE_URL } from "../../store.json";
 
 const HorizontalNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,27 +18,27 @@ const HorizontalNav = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/"
+            to={BASE_URL+"/"}
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 ${isActive("/") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             Home
           </Link>
 
-          <Link
+          {/* <Link
             to="/pricing"
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 ${isActive("/pricing") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             Pricing
-          </Link>
+          </Link> */}
           <Link
-            to="/about"
+            to={BASE_URL+"/about"}
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 ${isActive("/about") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             About
           </Link>
 
           <Link
-            to="/contact"
+            to={BASE_URL+"/contact"}
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 ${isActive("/contact") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             Contact
@@ -45,13 +46,13 @@ const HorizontalNav = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/login"
+            to={BASE_URL+"/login"}
             className={`w-full h-10 bg-[#EFF1F1] text-[#4C4C4C] px-4 py-2 rounded border border-zinc-400 flex items-center justify-center hover:bg-transparent ${isActive("/login") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             <i className="fas fa-user text-sm mr-2"></i> Login
           </Link>
           <Link
-            to="/register"
+            to={BASE_URL+'/register'}
             className={`w-full h-10 bg-[#323232] text-[#EFF1F1] px-6 text-sm rounded flex items-center justify-center hover:bg-green-600 ${isActive("/register") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             Sign Up
@@ -81,32 +82,32 @@ const HorizontalNav = () => {
           >
             Features
           </Link> */}
-          <Link
+          {/* <Link
             to="/pricing"
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 ${isActive("/pricing") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             Pricing
-          </Link>
+          </Link> */}
           <Link
-            to="/about"
+            to={BASE_URL+"/about"}
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 ${isActive("/about") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             About
           </Link>
           <Link
-            to="/contact"
+            to={BASE_URL+"/contact"}
             className={`block text-[#383838] hover:text-[#5D6DF4] px-2 py-1 mb-10 ${isActive("/contact") ? "font-bold text-[#5D6DF4]" : ""}`}
           >
             Contact
           </Link>
           <Link
-            to="/login"
+            to={BASE_URL+"/login"}
             className={`block w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${isActive("/login") ? "font-bold" : ""}`}
           >
             <i className="fas fa-user"></i> Login
           </Link>
           <Link
-            to="/register"
+            to={BASE_URL+'/register'}
             className={`block w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-3 ${isActive("/register") ? "font-bold" : ""}`}
           >
             Sign Up

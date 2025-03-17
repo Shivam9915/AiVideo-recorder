@@ -4,6 +4,7 @@ import axios from "axios";
 import baseUrl from "../store.json";
 import Navbar from "./partials/Navbar";
 import { useVideo } from "../context/VideoContext";
+import {BASE_URL} from "../store.json";
 
 const WriteText = () => {
     const [textInput, setTextInput] = useState("");
@@ -48,7 +49,7 @@ const WriteText = () => {
         }
 
         // Redirect to trained videos page with loading state
-        navigate("/trainedvideos", { state: { isGenerating: true, textInput, videourl, userId } });
+        navigate(BASE_URL+"/trainedvideos", { state: { isGenerating: true, textInput, videourl, userId } });
         const formData = new FormData();
         formData.append("text", textInput);
         formData.append("video", videourl);
@@ -89,7 +90,7 @@ const WriteText = () => {
             />
             <div className="flex flex-col items-center justify-center min-h-screen bg-white">
                 <div className="absolute top-16 w-full p-4">
-                    <Link to="/create-video" className="mr-4">
+                    <Link to={BASE_URL+"/create-video"} className="mr-4">
                         <i className="fas fa-arrow-left text-2xl text-black hover:text-blue-900"></i>
                     </Link>
                 </div>

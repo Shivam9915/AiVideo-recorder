@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom"; // Import useNavigate
 import RecordingDots from "../../RecordingDots"; // Ensure this component is correctly imported
 import Navbar from "./partials/Navbar";
+import {BASE_URL} from '../store.json'
 
 const AudioRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -77,7 +78,7 @@ const AudioRecorder = () => {
       const audioFile = new File([audioBlob], "recorded-audio.wav", {
         type: "audio/wav",
       });
-      navigate("/preview-audio", { state: { audioFile, video } });
+      navigate(BASE_URL+"/preview-audio", { state: { audioFile, video } });
     } else {
       alert("Please record audio before proceeding.");
     }

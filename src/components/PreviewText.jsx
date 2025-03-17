@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import baseUrl from '../store.json'
 import Navbar from "./partials/Navbar";
+import {BASE_URL} from '../store.json'
 
 const PreviewText = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -85,7 +86,7 @@ const PreviewText = () => {
       setMessage("Video generated successfully");
       setLoading(false);
       console.log(data)
-      navigate("/trainedvideos")
+      navigate(BASE_URL+"/trainedvideos")
     }
     // Handle success (e.g., navigate to another page or show a success message)
   } catch (error) {
@@ -106,7 +107,7 @@ const PreviewText = () => {
       />
       <div className="flex flex-col items-center justify-center min-h-screen w-full">
       <div className="absolute left-0 top-20 w-full p-4">
-          <Link to='/AiGenerate1' className="mr-4">
+          <Link to={BASE_URL+'/AiGenerate1'} className="mr-4">
             <i  className="fas fa-arrow-left text-2xl text-black hover:text-blue-900"></i>{" "}
             {/* Back arrow icon */}
           </Link>
@@ -167,34 +168,34 @@ const PreviewText = () => {
               </div>
               <nav className="flex flex-col h-full">
                 <Link
-                  to="/trainedvideos"
+                  to={BASE_URL+"/trainedvideos"}
                   className="mb-4 text-md font-semibold text-gray-700 flex items-center"
                 >
                   <i className="fas fa-video mr-3 text-gray-500"></i> Trained
                   Videos
                 </Link>
                 <Link
-                  to="templates"
+                  to={BASE_URL+"templates"}
                   className="mb-4 text-md font-semibold text-gray-700 flex items-center"
                 >
                   <i className="fas fa-file-alt mr-6 text-gray-500"></i>{" "}
                   Templates
                 </Link>
                 <Link
-                  to="/compositions"
+                  to={BASE_URL+"/compositions"}
                   className="mb-4 text-md font-semibold text-gray-700 flex items-center"
                 >
                   <i className="fas fa-layer-group text-gray-500 mr-3"></i>{" "}
                   Compositions
                 </Link>
-                <Link to="/create-video">
+                <Link to={+BASE_URL+"/create-video"}>
                   <button className="w-full py-3 bg-black text-white rounded-md font-semibold">
                     + Create Video
                   </button>
                 </Link>
                 <div className="mt-[55vh]">
                   <Link
-                    to="/login"
+                    to={+BASE_URL+"/login"}
                     className="text-lg font-semibold text-red-500 flex items-center"
                   >
                     <i className="fas fa-sign-out-alt mr-2"></i> Logout

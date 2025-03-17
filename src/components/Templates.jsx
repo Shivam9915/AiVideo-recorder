@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./partials/Navbar";
 import axios from "axios";
-import { TEMPLATE_URL, API_URL } from "../store.json";
+import {TEMPLATE_URL, API_URL,BASE_URL } from "../store.json";
 import Footer from "./partials/Footer";
 
 const Templates = () => {
@@ -69,7 +69,7 @@ const Templates = () => {
       if (response) {
         const videoid = response.data.video_id;
         localStorage.setItem("videoid", videoid);
-        navigate("/compositions");
+        navigate(BASE_URL+"/compositions");
       }
     } catch (error) {
       console.error("Error generating video:", error);
@@ -79,7 +79,7 @@ const Templates = () => {
   };
 
   const handleNavigateToVideos = () => {
-    navigate('/trainedvideos', { state: { selectedTemplate } });
+    navigate(BASE_URL+'/trainedvideos', { state: { selectedTemplate } });
   };
 
   // Updated function to handle template upload
@@ -156,7 +156,7 @@ const Templates = () => {
               <p>No templates available so far.</p>
             </div>
           )}
-          <Link to="/create-video">
+          <Link to={BASE_URL+"/create-video"}>
             <div className="fixed bottom-4 right-12 bg-black text-white rounded-full h-[40px] w-[40px] shadow-lg flex items-center justify-center">
               <i className="fa-solid fa-video"></i>
             </div>

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios
 import Navbar from "./partials/Navbar";
 import { useVideo } from "../context/VideoContext";
+import {BASE_URL} from "../store.json";
 
 const CreateVideo = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -74,7 +75,7 @@ const videourl = localStorage.getItem("videourl")
             },
           }
         );
-        navigate("/trainedvideos")
+        navigate(BASE_URL+"/trainedvideos")
         localStorage.removeItem("videourl");
         localStorage.getItem("gender");
         console.log("File uploaded successfully:", response.data);
@@ -85,16 +86,16 @@ const videourl = localStorage.getItem("videourl")
   };
 
   const handleWriteText = () => {
-    navigate("/writeText"); // pass videourl
+    navigate(BASE_URL+"/writeText"); // pass videourl
   };
 
   const handleRecordAudio = () => {
-    navigate("/audio-recording");
+    navigate(BASE_URL+"/audio-recording");
     
   };
 
   const handleAiGenerate = () => {
-    navigate("/AiGenerate1"); // pass videourl
+    navigate(BASE_URL+"/AiGenerate1"); // pass videourl
   };
 useEffect(()=>{
  

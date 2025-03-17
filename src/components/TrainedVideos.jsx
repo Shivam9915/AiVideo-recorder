@@ -5,6 +5,7 @@ import Navbar from "./partials/Navbar";
 import { API, API_URL } from "../store.json";
 import Footer from "./partials/Footer";
 import ReactPlayer from 'react-player'; // Import ReactPlayer
+import { BASE_URL } from "../store.json";
 
 const TrainedVideos = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -31,7 +32,7 @@ const TrainedVideos = () => {
   useEffect(() => {
     const id = localStorage.getItem('userId');
     if (!id) {
-      navigate('/login');
+      navigate(`${BASE_URL}/login`);
     }
   }, []);
 
@@ -213,13 +214,13 @@ const TrainedVideos = () => {
     const videos = response.data.videos;
     console.log(videos);
     if (data.success) {
-      navigate('/videolist', { state: { videos } });
+      navigate( `${BASE_URL}/videolist`, { state: { videos } });
       console.log(response);
     }
   };
 
   const handleNavigateToTemplates = () => {
-    navigate("/templates", { state: { selectedVideo } }); // Pass selectedVideo to Templates
+    navigate(`${BASE_URL}/templates`, { state: { selectedVideo } }); // Pass selectedVideo to Templates
   };
 
   return (
@@ -237,7 +238,7 @@ const TrainedVideos = () => {
           {videos.length === 0 ? (
             <div className="text-center text-gray-500 mt-10 flex items-center justify-center">
               <p>No videos available so far.</p>
-              <Link to="/Ai-Setup1">
+              <Link to={BASE_URL+"/Ai-Setup1"}>
                 <div className="fixed bottom-4 right-12 bg-black text-white rounded-full h-[40px] w-[40px] shadow-lg flex items-center justify-center">
                   <i className="fa-solid fa-video"></i>
                 </div>
@@ -463,7 +464,7 @@ const TrainedVideos = () => {
             </div>
           )}
         </main>
-        <Link to="/Ai-Setup1">
+        <Link to={BASE_URL+"/Ai-Setup1"}>
           <div className="fixed bottom-4 right-12 bg-black text-white rounded-full h-[40px] w-[40px] shadow-lg flex items-center justify-center">
             <i className="fa-solid fa-video"></i>
           </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./partials/Navbar";
 import Footer from "./partials/Footer";
+import { BASE_URL } from "../store.json";
 
 const AiBot = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const AiBot = () => {
       useEffect(() => {
       const id =localStorage.getItem('userId');
       if(!id){
-        navigate('/login')
+        navigate(BASE_URL+'/login')
       }
       else{
         return;
@@ -26,7 +27,7 @@ const AiBot = () => {
 
 
   const handleCameraClick = async () => {
-    navigate("/Ai-Setup2"); // Redirect to setupAi2 page
+    navigate(BASE_URL+"/Ai-Setup2"); // Redirect to setupAi2 page
   };
 
   // Profile picture functions

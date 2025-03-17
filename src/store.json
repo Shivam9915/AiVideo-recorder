@@ -1,6 +1,7 @@
 {
-    "API_URL": "http://192.168.1.33:5000/api",
-    "API": "http://192.168.1.33:5000/",
-    "TEMPLATE_URL": "http://192.168.1.33:5000/api/templates/"
+    "API_URL": "http://192.168.1.17:5000/api",
+    "API": "http://192.168.1.17:5000/",
+    "BASE_URL":"/demos/ai-video-app",
+    "TEMPLATE_URL": "http://192.168.1.17:5000/api/templates/"
 
 }

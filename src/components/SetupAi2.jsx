@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./partials/Navbar";
 import Footer from "./partials/Footer";
 import { useVideo } from "../context/VideoContext";
-import { API_URL } from "../store.json";
+import { API_URL, BASE_URL } from "../store.json";
 import axios from "axios";
 import ConsentDialog from "./partials/ConsentDialogbox"; // Import the ConsentDialog
 
@@ -48,7 +48,7 @@ const SetupAi2 = () => {
         localStorage.setItem("gender", gender);
 
         if (response.data.success) {
-          navigate("/create-video");
+          navigate(BASE_URL+"/create-video");
         }
 
         setShowConsentDialog(false);
@@ -100,11 +100,11 @@ const SetupAi2 = () => {
 
   const handleContinueClick = () => {
     // Navigate to Ai-Setup3 when the continue button is clicked
-    navigate("/Ai-Setup3");
+    navigate(BASE_URL+"/Ai-Setup3");
   };
 
   const handleClose = () => {
-    navigate("/Ai-Setup1");
+    navigate(BASE_URL+"/Ai-Setup1");
   };
 
   return (

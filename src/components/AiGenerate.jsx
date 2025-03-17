@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import baseUrl from "../store.json";
 import Navbar from "./partials/Navbar";
+import{BASE_URL} from '../store.json'
 
 const AiGenerate = () => {
   const [text, setText] = useState(""); // State for text input
@@ -63,7 +64,7 @@ const AiGenerate = () => {
       const data = response.data; // Assuming the API returns a response
       if (data) {
         setLoading(false);
-        navigate("/AiGenerate2", {
+        navigate(BASE_URL+"/AiGenerate2", {
           state: { article: data.news_article, prompt: data.text, video },
         });
       }
@@ -84,7 +85,7 @@ const AiGenerate = () => {
 
       <div className="flex flex-col items-center justify-center min-h-screen pt-[15%] md:justify-start bg-gradient-to-t from-blue-200 to-white">
         <div className="absolute top-16 w-full p-4">
-          <Link to="/create-video" className="mr-4">
+          <Link to={BASE_URL+"/create-video"} className="mr-4">
             <i className="fas fa-arrow-left text-2xl text-black hover:text-blue-900"></i>{" "}
             {/* Back arrow icon */}
           </Link>

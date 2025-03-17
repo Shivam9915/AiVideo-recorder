@@ -6,6 +6,7 @@ import Footer from './partials/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { useVideo } from '../context/VideoContext';
 import { useConsent } from '../context/ConsentContext';
+import {BASE_URL} from '../store.json';
 
 const SetupAi3 = () => {
     const { recordedVideo } = useVideo();
@@ -117,7 +118,7 @@ const SetupAi3 = () => {
 
             setTimeout(() => {
                 if (data) {
-                    navigate('/Ai-setup4', { state: {gender,videourl} });
+                    navigate(BASE_URL+'/Ai-setup4', { state: {gender,videourl} });
                 }
             }, 3000);
         } catch (error) {
@@ -191,7 +192,7 @@ const SetupAi3 = () => {
                                 className='form-checkbox text-gray-600'
                             />
                             <span className='ml-2'>
-                                I agree to the <Link to='/terms-and-conditions' className='underline'>terms and conditions</Link>
+                                I agree to the <Link to={{BASE_URL}+'/terms-and-conditions'} className='underline'>terms and conditions</Link>
                             </span>
                         </label>
                     </div>
@@ -243,7 +244,7 @@ const SetupAi3 = () => {
                             Close
                         </button>
                         {showOverlay==2 ?
-                        <Link to='renew-subscription' className="w-20 mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={closeOverlay}>
+                        <Link to={{BASE_URL}+'/renew-subscription'} className="w-20 mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={closeOverlay}>
                         Buy
                     </Link> :
                     null

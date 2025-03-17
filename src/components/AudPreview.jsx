@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { API_URL } from '../store.json';
+import { API_URL,BASE_URL } from '../store.json';
 import Navbar from "./partials/Navbar";
 
 const AudPreview = () => {
@@ -40,7 +40,7 @@ const AudPreview = () => {
         };
 
   const handleRecordAgain = () => {
-    navigate('/audio-recording');
+    navigate(BASE_URL+'/audio-recording');
     
   };
 
@@ -90,7 +90,7 @@ const AudPreview = () => {
       const data = response.data; // Assuming the API returns an object with a 'text' property
      console.log(data)
     
-      navigate('/preview-text',{state:{text:data.text,video}}); // Navigate to the preview text page
+      navigate(BASE_URL+'/preview-text',{state:{text:data.text,video}}); // Navigate to the preview text page
       // console.log(video)
     } catch (error) {
       console.error('Error generating text:', error);
